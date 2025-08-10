@@ -24,7 +24,7 @@ if st.button("Predict Sentiment"):
         cleaned_review = text_purify(review_input)
         # Convert the cleaned review to a format suitable for the model
         vectorizer = CountVectorizer()
-        review_vector = vectorizer.transform([cleaned_review])
+        review_vector = vectorizer.fit_transform([cleaned_review])
         # Predict sentiment
         prediction = model.predict(review_vector)
         sentiment = "Positive" if prediction[0] == 1 else "Negative"
