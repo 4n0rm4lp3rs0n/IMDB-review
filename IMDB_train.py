@@ -49,3 +49,4 @@ print(classification_report(y_test, y_pred))
 
 #Data saving
 joblib.dump(model, 'IMDB.pkl')
+joblib.dump(vectorizer, 'vectorizer.pkl')
