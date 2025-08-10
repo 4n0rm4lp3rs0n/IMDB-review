@@ -11,6 +11,7 @@ nltk.download('wordnet')
 from IMDB_train import text_purify
 
 model = joblib.load('IMDB.pkl')
+vectorizer = joblib.load('vectorizer.pkl')
 
 st.title("IMDB Movie Review Sentiment Analysis")
 
@@ -23,7 +24,6 @@ if st.button("Predict Sentiment"):
         # Preprocess the input review
         cleaned_review = text_purify(review_input)
         # Convert the cleaned review to a format suitable for the model
-        vectorizer = CountVectorizer()
         review_vector = vectorizer.fit_transform([cleaned_review])
         # Predict sentiment
         prediction = model.predict(review_vector)
